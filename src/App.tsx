@@ -61,6 +61,9 @@ function App() {
            <span className="text-[30vw] font-bold text-stroke">ENGINE</span>
         </div>
       </CanvasWrapper>
+
+      {/* Global Scroll Spacer to enable Galactic Railway */}
+      <div className="h-[800vh] w-px pointer-events-none relative z-[-1]" />
     </>
   )
 }
