@@ -16,9 +16,8 @@ const Navigation = () => {
   }, []);
 
   const scrollToStation = (index: number) => {
-    // Map station index to scroll progress percentages
-    // Hero: 0.05, Projects: 0.35, About: 0.65, Contact: 0.95
-    const stops = [0.05, 0.35, 0.65, 0.95];
+    // Map 5 stations to their dwell center percentages
+    const stops = [0.04, 0.23, 0.40, 0.66, 0.94];
     const targetScroll = stops[index] * (document.documentElement.scrollHeight - window.innerHeight);
     
     window.scrollTo({
@@ -30,7 +29,7 @@ const Navigation = () => {
   return (
     <nav 
       ref={navRef}
-      className="fixed top-0 left-0 w-full z-100 flex justify-between items-center px-[5vw] py-8 pointer-events-none"
+      className="fixed top-0 left-0 w-full z-[100] flex justify-between items-center px-[5vw] py-8 pointer-events-none"
     >
       <div className="pointer-events-auto cursor-pointer interactive" onClick={() => scrollToStation(0)}>
         <Magnetic>
@@ -38,12 +37,12 @@ const Navigation = () => {
         </Magnetic>
       </div>
       
-      <div className="flex gap-8 pointer-events-auto">
-        {['About', 'Porto', 'Contact'].map((item, i) => (
+      <div className="flex gap-4 md:gap-8 pointer-events-auto">
+        {['About', 'Skill', 'Porto', 'Contact'].map((item, i) => (
           <Magnetic key={item}>
             <button 
               onClick={() => scrollToStation(i + 1)}
-              className="text-[10px] uppercase tracking-[0.3em] font-medium hover:opacity-50 transition-smooth interactive px-4 py-2 bg-transparent border-none cursor-pointer"
+              className="text-[9px] md:text-[10px] uppercase tracking-[0.3em] font-medium hover:opacity-50 transition-smooth interactive px-3 md:px-4 py-2 bg-transparent border-none cursor-pointer"
             >
               {item}
             </button>

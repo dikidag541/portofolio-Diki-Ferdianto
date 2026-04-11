@@ -12,6 +12,7 @@ import DigitalFragments from './components/DigitalFragments'
 import Contact from './components/Contact'
 import Preloader from './components/Preloader'
 import SpaceDebris from './components/SpaceDebris'
+import Expertise from './components/Expertise'
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -24,7 +25,6 @@ function App() {
         )}
       </AnimatePresence>
 
-      {/* Background Universe */}
       <div className="fixed inset-0 bg-transparent pointer-events-none z-[-10]">
         <NeuralBackground />
       </div>
@@ -34,12 +34,11 @@ function App() {
       <Navigation />
       
       <CanvasWrapper>
-        {/* Spatial Richness Layers */}
         <DigitalFragments />
         <NavigationalPaths />
         <SpaceDebris />
 
-        {/* Origin Island: Hero - WAYPOINTS[0]: (400, 400) */}
+        {/* 0: Hero - (400, 400) */}
         <div 
           className="absolute w-screen h-screen flex items-center justify-center pointer-events-auto"
           style={{ top: '400vh', left: '400vw', transform: 'translate(-50%, -50%)' }}
@@ -47,7 +46,7 @@ function App() {
           <Hero />
         </div>
 
-        {/* About Island: WAYPOINTS[1]: (170, 650) */}
+        {/* 1: About - (170, 650) */}
         <div 
           className="absolute w-[140vw] flex items-center justify-center pointer-events-auto"
           style={{ top: '650vh', left: '170vw', transform: 'translate(-50%, -50%)' }}
@@ -55,15 +54,23 @@ function App() {
            <About />
         </div>
 
-        {/* Porto Island: WAYPOINTS[2]: (710, 390) */}
+        {/* 2: Expertise - (450, 750) */}
+        <div 
+          className="absolute w-screen h-screen flex items-center justify-center pointer-events-auto"
+          style={{ top: '750vh', left: '450vw', transform: 'translate(-50%, -50%)' }}
+        >
+           <Expertise />
+        </div>
+
+        {/* 3: Porto - (740, 410) */}
         <div 
           className="absolute w-[200vw] flex items-center justify-center pointer-events-auto"
-          style={{ top: '390vh', left: '710vw', transform: 'translate(-50%, -50%)' }}
+          style={{ top: '410vh', left: '740vw', transform: 'translate(-50%, -50%)' }}
         >
            <Projects />
         </div>
 
-        {/* Contact Island: WAYPOINTS[3]: (650, 150) */}
+        {/* 4: Contact - (650, 150) */}
         <div 
           className="absolute w-screen flex items-center justify-center pointer-events-auto"
           style={{ top: '150vh', left: '650vw', transform: 'translate(-50%, -50%)' }}
@@ -71,7 +78,7 @@ function App() {
            <Contact />
         </div>
 
-        {/* Massive Decorative Background Elements */}
+        {/* Engine Overlay */}
         <div 
           className="absolute opacity-5 pointer-events-none select-none"
           style={{ top: '250vh', left: '450vw', transform: 'translate(-50%, -50%)' }}
@@ -80,7 +87,6 @@ function App() {
         </div>
       </CanvasWrapper>
 
-      {/* Global Scroll Spacer to enable Galactic Railway */}
       <div className="h-[800vh] w-px pointer-events-none relative z-[-1]" />
     </>
   )
