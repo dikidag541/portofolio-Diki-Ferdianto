@@ -3,18 +3,18 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 const NavigationalPaths = () => {
   const { scrollYProgress } = useScroll();
 
-  // Coordinates as percentages of the 800vw x 800vh canvas
+  // Coordinates as percentages of the 800vw x 800vh canvas (Centers)
   const coords = {
-    hero: { x: "43.75%", y: "43.75%" },
-    projects: { x: "81.25%", y: "42.5%" },
-    about: { x: "12.5%", y: "75%" },
-    contact: { x: "75%", y: "12.5%" },
+    hero: { x: "50%", y: "50%" },
+    about: { x: "21.25%", y: "81.25%" },
+    projects: { x: "88.75%", y: "48.75%" },
+    contact: { x: "81.25%", y: "18.75%" },
   };
 
   const lines = [
-    { start: coords.hero, end: coords.projects, range: [0.1, 0.3] },
-    { start: coords.projects, end: coords.about, range: [0.4, 0.6] },
-    { start: coords.about, end: coords.contact, range: [0.7, 0.9] },
+    { start: coords.hero, end: coords.about, range: [0.1, 0.3] },
+    { start: coords.about, end: coords.projects, range: [0.4, 0.55] },
+    { start: coords.projects, end: coords.contact, range: [0.8, 0.95] },
   ];
 
   return (
@@ -71,7 +71,7 @@ const NavigationalPaths = () => {
             fill="rgba(250, 250, 250, 0.2)"
             className="text-[10px] uppercase tracking-[0.8em] font-mono font-bold"
           >
-            {name}_STATION
+            {name === 'contact' ? 'DEPLOYMENT' : name}_STATION
           </text>
         </g>
       ))}

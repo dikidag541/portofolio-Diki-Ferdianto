@@ -1,25 +1,24 @@
 import { motion, useMotionValue, useSpring, useVelocity, useTransform, useScroll } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useLayoutEffect } from 'react';
 
 interface CanvasWrapperProps {
   children: React.ReactNode;
 }
 
 const WAYPOINTS = [
-  { x: 350, y: 350 }, // Hero
-  { x: 650, y: 340 }, // Projects
-  { x: 100, y: 600 }, // About
-  { x: 600, y: 100 }, // Contact
+  { x: 400, y: 400 }, // Hero Center
+  { x: 170, y: 650 }, // About Center
+  { x: 710, y: 390 }, // Projects Center
+  { x: 650, y: 150 }, // Contact Center
 ];
 
 const CanvasWrapper = ({ children }: CanvasWrapperProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll();
   
-  // Dwell mapping: Start at station, stay for 10% of scroll, move to next
-  // Range: [0, 0.1, 0.3, 0.4, 0.6, 0.7, 0.9, 1.0]
-  // Stops: [H, H,   P,   P,   A,   A,   C,   C]
-  const scrollRange = [0, 0.1, 0.3, 0.4, 0.6, 0.7, 0.9, 1.0];
+  // Dwell mapping: [Start, Stay, Travel, Stay, Travel, Stay, Travel, Stay]
+  // Range: [0, 0.1, 0.3, 0.4, 0.55, 0.8, 0.95, 1.0]
+  const scrollRange = [0, 0.1, 0.3, 0.4, 0.55, 0.8, 0.95, 1.0];
   const xWaypoints = [
     -(WAYPOINTS[0].x * window.innerWidth / 100) + window.innerWidth / 2,
     -(WAYPOINTS[0].x * window.innerWidth / 100) + window.innerWidth / 2,
@@ -47,6 +46,18 @@ const CanvasWrapper = ({ children }: CanvasWrapperProps) => {
   // Manual drag offsets
   const dragX = useMotionValue(0);
   const dragY = useMotionValue(0);
+
+  // Auto-centering: Decay drag offsets when scrolling
+  // This ensures we return to the "path" once we travel
+  useLayoutEffect(() => {
+    return scrollYProgress.on("change", () => {
+       if (Math.abs(dragX.get()) > 0.1 || Math.abs(dragY.get()) > 0.1) {
+          // Slowly bring offsets back to center during travel
+          dragX.set(dragX.get() * 0.95);
+          dragY.set(dragY.get() * 0.95);
+       }
+    });
+  }, [scrollYProgress, dragX, dragY]);
 
   // Springs for buttery smooth interpolation of BOTH path and drag
   const springConfig = { damping: 40, stiffness: 200, mass: 1 };

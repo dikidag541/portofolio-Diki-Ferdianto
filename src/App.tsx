@@ -1,3 +1,5 @@
+import { useState } from 'react'
+import { AnimatePresence } from 'framer-motion'
 import CustomCursor from './components/CustomCursor'
 import Navigation from './components/Navigation'
 import Hero from './components/Hero'
@@ -7,12 +9,25 @@ import NeuralBackground from './components/NeuralBackground'
 import CanvasWrapper from './components/CanvasWrapper'
 import NavigationalPaths from './components/NavigationalPaths'
 import DigitalFragments from './components/DigitalFragments'
+import Contact from './components/Contact'
+import Preloader from './components/Preloader'
+import SpaceDebris from './components/SpaceDebris'
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
+
   return (
     <>
+      <AnimatePresence mode="wait">
+        {isLoading && (
+          <Preloader key="preloader" onComplete={() => setIsLoading(false)} />
+        )}
+      </AnimatePresence>
+
       {/* Background Universe */}
-      <NeuralBackground />
+      <div className="fixed inset-0 bg-transparent pointer-events-none z-[-10]">
+        <NeuralBackground />
+      </div>
       <div className="bg-grain"></div>
       
       <CustomCursor />
@@ -22,42 +37,45 @@ function App() {
         {/* Spatial Richness Layers */}
         <DigitalFragments />
         <NavigationalPaths />
+        <SpaceDebris />
 
-        {/* Origin Island: Hero - Centered at 350vw, 350vh */}
-        <div className="absolute top-[350vh] left-[350vw] w-screen h-screen pointer-events-auto">
+        {/* Origin Island: Hero - WAYPOINTS[0]: (400, 400) */}
+        <div 
+          className="absolute w-screen h-screen flex items-center justify-center pointer-events-auto"
+          style={{ top: '400vh', left: '400vw', transform: 'translate(-50%, -50%)' }}
+        >
           <Hero />
         </div>
 
-        {/* Project Island: To the far right */}
-        <div className="absolute top-[340vh] left-[650vw] w-[120vw] scale-95 md:scale-110 pointer-events-auto">
-           <Projects />
-        </div>
-
-        {/* About Island: To the far bottom-left */}
-        <div className="absolute top-[600vh] left-[100vw] w-[140vw] pointer-events-auto">
+        {/* About Island: WAYPOINTS[1]: (170, 650) */}
+        <div 
+          className="absolute w-[140vw] flex items-center justify-center pointer-events-auto"
+          style={{ top: '650vh', left: '170vw', transform: 'translate(-50%, -50%)' }}
+        >
            <About />
         </div>
 
-        {/* Contact Island: Distant top-right */}
-        <div className="absolute top-[100vh] left-[600vw] w-screen pointer-events-auto">
-          <section id="contact" className="relative h-screen flex flex-col items-center justify-center px-[5vw] text-off-white">
-            <div className="relative z-10 text-center">
-              <h2 className="text-[clamp(4rem,18vw,15rem)] font-bold uppercase tracking-[-0.08em] leading-[0.75] interactive">
-                LETS <br /> <span className="text-stroke">SYNC.</span>
-              </h2>
-              <div className="flex flex-wrap justify-center gap-12 md:gap-24 mt-24">
-                {['Email', 'Instagram', 'Github', 'LinkedIn'].map(link => (
-                  <a key={link} href="#" className="text-[10px] uppercase tracking-[0.5em] font-bold hover:text-stroke transition-all duration-300 interactive">
-                    {link}
-                  </a>
-                ))}
-              </div>
-            </div>
-          </section>
+        {/* Porto Island: WAYPOINTS[2]: (710, 390) */}
+        <div 
+          className="absolute w-[200vw] flex items-center justify-center pointer-events-auto"
+          style={{ top: '390vh', left: '710vw', transform: 'translate(-50%, -50%)' }}
+        >
+           <Projects />
+        </div>
+
+        {/* Contact Island: WAYPOINTS[3]: (650, 150) */}
+        <div 
+          className="absolute w-screen flex items-center justify-center pointer-events-auto"
+          style={{ top: '150vh', left: '650vw', transform: 'translate(-50%, -50%)' }}
+        >
+           <Contact />
         </div>
 
         {/* Massive Decorative Background Elements */}
-        <div className="absolute top-[250vh] left-[450vw] opacity-5 pointer-events-none select-none">
+        <div 
+          className="absolute opacity-5 pointer-events-none select-none"
+          style={{ top: '250vh', left: '450vw', transform: 'translate(-50%, -50%)' }}
+        >
            <span className="text-[30vw] font-bold text-stroke">ENGINE</span>
         </div>
       </CanvasWrapper>
