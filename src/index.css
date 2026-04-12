@@ -3,6 +3,8 @@
 @theme {
   --color-off-black: #080808;
   --color-off-white: #fafafa;
+  --color-neural-cyan: #00f2ff;
+  --color-neural-purple: #7000ff;
   --font-sans: "Inter", "Outfit", system-ui, sans-serif;
   --font-serif: "Playfair Display", serif;
 }
@@ -10,6 +12,8 @@
 :root {
   --off-black: #080808;
   --off-white: #fafafa;
+  --neural-cyan: #00f2ff;
+  --neural-purple: #7000ff;
   
   background-color: var(--off-black);
   color: var(--off-white);
@@ -32,6 +36,12 @@
 .text-stroke {
   -webkit-text-stroke: 1px var(--off-white);
   color: transparent;
+}
+
+.text-stroke-cyan {
+  -webkit-text-stroke: 1px var(--neural-cyan);
+  color: transparent;
+  text-shadow: 0 0 15px rgba(0, 242, 255, 0.2);
 }
 
 .text-stroke-thin {
@@ -96,6 +106,8 @@
 
 .custom-cursor.hovered {
   transform: scale(10);
-  background-color: white;
+  background-color: var(--neural-cyan);
+  mix-blend-mode: normal;
+  box-shadow: 0 0 20px rgba(0, 242, 255, 0.4);
 }
 

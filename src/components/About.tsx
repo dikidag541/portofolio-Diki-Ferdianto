@@ -93,7 +93,7 @@ const About = () => {
         transition={{ duration: 2 }}
         className="absolute bottom-0 right-[-10%] select-none pointer-events-none"
       >
-         <span className="text-[30vw] font-bold text-stroke leading-none">ABOUT</span>
+         <span className="text-[30vw] font-bold text-stroke-cyan leading-none">ABOUT</span>
       </motion.div>
     </motion.section>
   );

@@ -16,8 +16,7 @@ const Navigation = () => {
   }, []);
 
   const scrollToStation = (index: number) => {
-    // Map 5 stations to their dwell center percentages
-    const stops = [0.04, 0.23, 0.40, 0.66, 0.94];
+    const stops = [0.04, 0.22, 0.40, 0.67, 0.96];
     const targetScroll = stops[index] * (document.documentElement.scrollHeight - window.innerHeight);
     
     window.scrollTo({

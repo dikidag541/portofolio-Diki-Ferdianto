@@ -17,9 +17,9 @@ const CanvasWrapper = ({ children }: CanvasWrapperProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll();
   
-  // Dwell mapping for 5 stations (10 points)
-  // [Start, Stay, Travel, Stay, Travel, Stay, Travel, Stay (PORTO), Travel, Stay]
-  const scrollRange = [0, 0.08, 0.18, 0.26, 0.36, 0.44, 0.54, 0.78, 0.88, 1.0];
+  // Dwell mapping: [Start, Stay, Travel, Stay, Travel, Stay, Travel, Stay (PORTO), Travel, Stay]
+  // Hero (0-0.08), About (0.18-0.26), Skill (0.36-0.44), Porto (0.50-0.85), Contact (0.93-1.0)
+  const scrollRange = [0, 0.08, 0.18, 0.26, 0.36, 0.44, 0.50, 0.85, 0.93, 1.0];
   
   const xWaypoints = [];
   const yWaypoints = [];

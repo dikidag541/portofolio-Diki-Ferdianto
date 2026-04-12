@@ -8,9 +8,10 @@ const CustomCursor = () => {
     const cursor = document.querySelector('.custom-cursor');
     
     const moveCursor = (e: MouseEvent) => {
+      const radius = isHovered ? 30 : 3;
       gsap.to(cursor, {
-        x: e.clientX - 10,
-        y: e.clientY - 10,
+        x: e.clientX - radius,
+        y: e.clientY - radius,
         duration: 0.1,
         ease: 'power2.out'
       });

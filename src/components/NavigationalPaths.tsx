@@ -14,8 +14,8 @@ const NavigationalPaths = () => {
   const lines = [
     { start: coords.hero, end: coords.about, range: [0.08, 0.18] },
     { start: coords.about, end: coords.expertise, range: [0.26, 0.36] },
-    { start: coords.expertise, end: coords.projects, range: [0.44, 0.54] },
-    { start: coords.projects, end: coords.contact, range: [0.78, 0.88] },
+    { start: coords.expertise, end: coords.projects, range: [0.44, 0.50] },
+    { start: coords.projects, end: coords.contact, range: [0.85, 0.93] },
   ];
 
   return (

@@ -16,8 +16,6 @@ const Hero = () => {
     const tl = gsap.timeline({ defaults: { ease: 'expo.out', duration: 2 } });
 
     tl.from('.hero-img-wrapper', {
-      clipPath: 'inset(100% 0% 0% 0%)',
-      opacity: 0,
       scale: 1.2,
       duration: 2.5,
       ease: 'power4.out',
@@ -60,7 +58,7 @@ const Hero = () => {
       </div>
 
       {/* Editorial Photo Integration - Root relative path */}
-      <div className="absolute top-[10%] md:top-[15%] right-[5%] md:right-[10%] w-[45vw] md:w-[22vw] hero-img-wrapper z-0 grayscale hover:grayscale-0 transition-all duration-1000 group">
+      <div className="absolute top-[10%] md:top-[15%] right-[5%] md:right-[10%] w-[45vw] md:w-[22vw] hero-img-wrapper z-[50] pointer-events-auto transition-all duration-1000 group">
         <div className="relative aspect-[3/4] overflow-hidden rounded-sm border border-off-white/10 shadow-2xl">
            <img 
              src="/input_file_0.png" 
@@ -81,7 +79,7 @@ const Hero = () => {
                 ref={titlePart1Ref}
                 className="text-[clamp(3.5rem,10vw,10rem)] font-bold uppercase leading-[0.85] tracking-[-0.05em] mb-4"
               >
-                DIKI <span className="text-stroke">FERDIANTO</span>
+                DIKI <span className="text-stroke-cyan">FERDIANTO</span>
               </h1>
               <h1 
                 ref={titlePart2Ref}
@@ -102,10 +100,10 @@ const Hero = () => {
       
       <div className="absolute bottom-12 left-[5vw] flex items-center gap-6">
          <div className="flex h-2 w-2 relative">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-off-white opacity-40"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-off-white"></span>
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-neural-cyan opacity-40"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-neural-cyan shadow-[0_0_10px_rgba(0,242,255,0.8)]"></span>
          </div>
-         <span className="text-[10px] uppercase tracking-[0.5em] font-bold opacity-30">Neural Engine Synced</span>
+         <span className="text-[10px] uppercase tracking-[0.5em] font-bold opacity-30 text-neural-cyan">Neural Engine Synced</span>
       </div>
     </section>
   );
