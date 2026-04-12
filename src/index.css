@@ -111,3 +111,13 @@
   box-shadow: 0 0 20px rgba(0, 242, 255, 0.4);
 }
 
+@keyframes scan {
+  0% { transform: translateY(-100%); opacity: 0; }
+  50% { opacity: 0.5; }
+  100% { transform: translateY(800%); opacity: 0; }
+}
+
+.animate-scan {
+  animation: scan 4s linear infinite;
+}
+
