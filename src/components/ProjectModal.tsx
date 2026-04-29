@@ -31,11 +31,11 @@ const ProjectModal = ({ project, isOpen, onClose }: { project: Project | null, i
 
           {/* Modal Container */}
           <motion.div 
-            className="relative w-full max-w-7xl h-full md:h-auto max-h-[90vh] bg-off-black border border-white/10 overflow-hidden flex flex-col md:flex-row"
-            initial={{ y: 100, scale: 0.9, opacity: 0 }}
-            animate={{ y: 0, scale: 1, opacity: 1 }}
-            exit={{ y: 100, scale: 0.9, opacity: 0 }}
-            transition={{ type: "spring", damping: 30, stiffness: 200 }}
+            className="relative w-full max-w-7xl h-full md:h-auto max-h-[90vh] bg-off-black border border-white/10 overflow-hidden flex flex-col md:flex-row group/modal"
+            initial={{ y: 50, opacity: 0, scale: 0.98 }}
+            animate={{ y: 0, opacity: 1, scale: 1 }}
+            exit={{ y: 50, opacity: 0, scale: 0.98 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
             {/* Close Button */}
             <button 
@@ -46,14 +46,19 @@ const ProjectModal = ({ project, isOpen, onClose }: { project: Project | null, i
             </button>
 
             {/* Left Image Side */}
-            <div className="w-full md:w-1/2 h-64 md:h-auto relative overflow-hidden">
-               <img 
+            <div className="w-full md:w-1/2 h-64 md:h-auto relative overflow-hidden flex-shrink-0">
+               <motion.img 
+                 initial={{ scale: 1.1, opacity: 0 }}
+                 animate={{ scale: 1, opacity: 0.6 }}
                  src={project.image} 
                  alt={project.title}
-                 className="w-full h-full object-cover grayscale opacity-50 contrast-125"
+                 className="w-full h-full object-cover grayscale contrast-125 transition-all duration-700"
                />
                <div className="absolute inset-0 bg-gradient-to-r from-off-black via-transparent to-transparent opacity-60"></div>
                <div className="absolute inset-0 bg-grain opacity-20 mix-blend-overlay"></div>
+               
+               {/* Cinematic Scanline */}
+               <div className="absolute top-0 left-0 w-full h-[2px] bg-neural-cyan/30 shadow-[0_0_15px_rgba(0,242,255,0.5)] animate-scan z-10"></div>
             </div>
 
             {/* Right Content Side */}

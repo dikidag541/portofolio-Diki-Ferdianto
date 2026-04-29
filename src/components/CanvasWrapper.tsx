@@ -56,8 +56,16 @@ const CanvasWrapper = ({ children }: CanvasWrapperProps) => {
   const y = useTransform([springPathY, springDragY], ([py, dy]) => (py as number) + (dy as number));
 
   const xVelocity = useVelocity(x);
+  const yVelocity = useVelocity(y);
+  
   const skewX = useTransform(xVelocity, [-2000, 2000], [-5, 5]);
+  const scale = useTransform([xVelocity, yVelocity], ([vx, vy]) => {
+     const velocity = Math.sqrt((vx as number)**2 + (vy as number)**2);
+     return 1 + Math.min(velocity / 10000, 0.05); // Subtle scale-up on speed
+  });
+
   const springSkewX = useSpring(skewX, { damping: 20, stiffness: 100 });
+  const springScale = useSpring(scale, { damping: 30, stiffness: 100 });
 
   return (
     <div className="fixed inset-0 bg-off-black overflow-hidden cursor-grab active:cursor-grabbing select-none z-0">
@@ -70,6 +78,7 @@ const CanvasWrapper = ({ children }: CanvasWrapperProps) => {
            x, 
            y,
            skewX: springSkewX,
+           scale: springScale,
            pointerEvents: 'auto'
          }}
          onDrag={(_, info) => {

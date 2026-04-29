@@ -16,7 +16,7 @@ const Expertise = () => {
     <section className="relative w-screen h-screen flex items-center justify-center pointer-events-auto overflow-visible">
       {/* Central Core */}
       <div className="relative z-10 flex flex-col items-center">
-        <motion.div 
+        <motion.div
           animate={{ scale: [1, 1.1, 1], rotate: 360 }}
           transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
           className="w-32 h-32 border border-white/10 rounded-full flex items-center justify-center"
@@ -41,34 +41,45 @@ const Expertise = () => {
             className="absolute group cursor-help"
             style={{ x: skill.x, y: skill.y }}
           >
-             <div className="relative">
-                {/* Connecting Line to Center */}
-                <div 
-                  className="absolute top-1/2 left-1/2 w-[1px] bg-white/5 origin-left"
-                  style={{ 
-                    width: Math.sqrt(skill.x**2 + skill.y**2), 
-                    transform: `rotate(${Math.atan2(-skill.y, -skill.x) * 180 / Math.PI}deg)`,
-                    left: 0, top: 0
-                  }}
-                ></div>
-                
-                <div className="relative z-20 bg-off-black/80 backdrop-blur-md border border-white/10 p-4 md:p-6 transition-smooth group-hover:border-white/40 group-hover:-translate-y-2">
-                   <span className="block text-[8px] uppercase tracking-[0.4em] opacity-40 mb-2">{skill.category}</span>
-                   <h3 className="text-lg md:text-xl font-bold uppercase tracking-tighter whitespace-nowrap">{skill.name}</h3>
-                </div>
-                
-                {/* Particle bits */}
-                <div className="absolute -top-1 -right-1 w-2 h-2 bg-white/20 group-hover:bg-white transition-colors"></div>
-             </div>
+            <div className="relative">
+              {/* Connecting Line to Center */}
+              <motion.div
+                initial={{ opacity: 0, scaleX: 0 }}
+                whileInView={{ opacity: 0.15, scaleX: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1.5, delay: index * 0.1 }}
+                className="absolute top-1/2 left-1/2 h-[1px] bg-gradient-to-r from-transparent to-white origin-left"
+                style={{
+                  width: Math.sqrt(skill.x ** 2 + skill.y ** 2),
+                  transform: `rotate(${Math.atan2(-skill.y, -skill.x) * 180 / Math.PI}deg)`,
+                  left: 64, top: 64 // Offset from skill card center/anchor
+                }}
+              >
+                {/* Energy Pulse */}
+                <motion.div 
+                  animate={{ left: ['0%', '50%', '100%'], opacity: [0, 1, 0] }}
+                  transition={{ duration: 2, repeat: Infinity, delay: index * 0.5, ease: "linear", times: [0, 0.5, 1] }}
+                  className="absolute top-[-2px] w-8 h-[5px] bg-white blur-[2px] rounded-full"
+                />
+              </motion.div>
+
+              <div className="relative z-20 bg-off-black/80 backdrop-blur-md border border-white/10 p-4 md:p-6 transition-smooth group-hover:border-white/40 group-hover:-translate-y-2">
+                <span className="block text-[8px] uppercase tracking-[0.4em] opacity-40 mb-2">{skill.category}</span>
+                <h3 className="text-lg md:text-xl font-bold uppercase tracking-tighter whitespace-nowrap">{skill.name}</h3>
+              </div>
+
+              {/* Particle bits */}
+              <div className="absolute -top-1 -right-1 w-2 h-2 bg-white/20 group-hover:bg-white transition-colors"></div>
+            </div>
           </motion.div>
         ))}
       </div>
 
       {/* Background Narrative */}
       <div className="absolute bottom-[15%] left-[5%] max-w-xs opacity-20 hidden md:block">
-         <p className="text-[10px] uppercase tracking-[0.4em] leading-relaxed italic">
-           Developing high-performance architectures using modern digital stacks. Bridging the gap between design precision and engineering logic.
-         </p>
+        <p className="text-[10px] uppercase tracking-[0.4em] leading-relaxed italic">
+          Developing high-performance architectures using modern digital stacks. Bridging the gap between design precision and engineering logic.
+        </p>
       </div>
     </section>
   );

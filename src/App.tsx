@@ -5,7 +5,7 @@ import Navigation from './components/Navigation'
 import Hero from './components/Hero'
 import Projects from './components/Projects'
 import About from './components/About'
-import NeuralBackground from './components/NeuralBackground'
+import StationAtmosphere from './components/StationAtmosphere'
 import CanvasWrapper from './components/CanvasWrapper'
 import NavigationalPaths from './components/NavigationalPaths'
 import DigitalFragments from './components/DigitalFragments'
@@ -26,7 +26,7 @@ function App() {
       </AnimatePresence>
 
       <div className="fixed inset-0 bg-transparent pointer-events-none z-[-10]">
-        <NeuralBackground />
+        <StationAtmosphere />
       </div>
       <div className="bg-grain"></div>
       

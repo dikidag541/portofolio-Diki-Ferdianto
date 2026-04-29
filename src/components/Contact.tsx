@@ -15,7 +15,7 @@ const Contact = () => {
   };
 
   return (
-    <motion.section 
+    <motion.section
       id="contact"
       className="relative min-h-screen flex flex-col items-center justify-center px-[5vw] py-32 text-off-white overflow-hidden pointer-events-auto"
       initial="initial"
@@ -30,7 +30,7 @@ const Contact = () => {
         <motion.div variants={fadeInUp} className="overflow-hidden mb-4">
           <span className="text-[10px] uppercase tracking-[1em] opacity-40 block">Phase // 04</span>
         </motion.div>
-        
+
         <motion.h2 variants={fadeInUp} className="text-[clamp(3.5rem,15vw,12rem)] font-bold uppercase tracking-[-0.05em] leading-[0.8] mb-16">
           ELITE <br /> <span className="text-stroke">DEPLOYMENT.</span>
         </motion.h2>
@@ -47,8 +47,8 @@ const Contact = () => {
           <motion.div variants={fadeInUp} className="flex flex-wrap gap-8 md:justify-end items-end">
             {['Instagram', 'Github', 'LinkedIn'].map((link) => (
               <Magnetic key={link}>
-                <a 
-                  href="#" 
+                <a
+                  href="#"
                   className="text-[10px] uppercase tracking-[0.4em] font-bold hover:opacity-50 transition-smooth"
                 >
                   {link}

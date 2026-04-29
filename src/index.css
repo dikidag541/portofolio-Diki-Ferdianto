@@ -1,12 +1,13 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Italiana&family=Outfit:wght@100..900&display=swap');
 
 @theme {
   --color-off-black: #080808;
   --color-off-white: #fafafa;
   --color-neural-cyan: #00f2ff;
   --color-neural-purple: #7000ff;
-  --font-sans: "Inter", "Outfit", system-ui, sans-serif;
-  --font-serif: "Playfair Display", serif;
+  --font-sans: "Outfit", "Inter", system-ui, sans-serif;
+  --font-serif: "Italiana", "Playfair Display", serif;
 }
 
 :root {
@@ -14,7 +15,7 @@
   --off-white: #fafafa;
   --neural-cyan: #00f2ff;
   --neural-purple: #7000ff;
-  
+
   background-color: var(--off-black);
   color: var(--off-white);
   font-family: var(--font-sans);
@@ -26,8 +27,10 @@
   body {
     @apply bg-off-black text-off-white overflow-x-hidden selection:bg-off-white selection:text-off-black;
   }
-  
-  h1, h2, h3 {
+
+  h1,
+  h2,
+  h3 {
     @apply tracking-tighter font-medium;
   }
 }
@@ -72,16 +75,47 @@
 }
 
 @keyframes grain {
-  0%, 100% { transform:translate(0, 0) }
-  10% { transform:translate(-5%, -10%) }
-  20% { transform:translate(-15%, 5%) }
-  30% { transform:translate(7%, -25%) }
-  40% { transform:translate(-5%, 25%) }
-  50% { transform:translate(-15%, 10%) }
-  60% { transform:translate(15%, 0%) }
-  70% { transform:translate(0%, 15%) }
-  80% { transform:translate(3%, 35%) }
-  90% { transform:translate(-10%, 10%) }
+
+  0%,
+  100% {
+    transform: translate(0, 0)
+  }
+
+  10% {
+    transform: translate(-5%, -10%)
+  }
+
+  20% {
+    transform: translate(-15%, 5%)
+  }
+
+  30% {
+    transform: translate(7%, -25%)
+  }
+
+  40% {
+    transform: translate(-5%, 25%)
+  }
+
+  50% {
+    transform: translate(-15%, 10%)
+  }
+
+  60% {
+    transform: translate(15%, 0%)
+  }
+
+  70% {
+    transform: translate(0%, 15%)
+  }
+
+  80% {
+    transform: translate(3%, 35%)
+  }
+
+  90% {
+    transform: translate(-10%, 10%)
+  }
 }
 
 /* Transitions */
@@ -112,12 +146,55 @@
 }
 
 @keyframes scan {
-  0% { transform: translateY(-100%); opacity: 0; }
-  50% { opacity: 0.5; }
-  100% { transform: translateY(800%); opacity: 0; }
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: translateY(800%);
+    opacity: 0;
+  }
 }
 
 .animate-scan {
   animation: scan 4s linear infinite;
 }
+/* Global Effects */
+.bg-scanlines {
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%,
+    rgba(0, 0, 0, 0.25) 50%
+  ),
+  linear-gradient(
+    90deg,
+    rgba(255, 0, 0, 0.06),
+    rgba(0, 255, 0, 0.02),
+    rgba(0, 0, 255, 0.06)
+  );
+  background-size: 100% 4px, 3px 100%;
+  pointer-events: none;
+}
 
+@keyframes flicker {
+  0% { opacity: 0.1; }
+  5% { opacity: 0.2; }
+  10% { opacity: 0.1; }
+  15% { opacity: 0.3; }
+  25% { opacity: 0.2; }
+  35% { opacity: 0.4; }
+  50% { opacity: 0.2; }
+  65% { opacity: 0.5; }
+  75% { opacity: 0.2; }
+  85% { opacity: 0.3; }
+  90% { opacity: 0.2; }
+  100% { opacity: 0.1; }
+}
+
+.animate-flicker {
+  animation: flicker 0.15s infinite;
+}
