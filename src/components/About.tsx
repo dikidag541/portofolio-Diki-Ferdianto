@@ -29,7 +29,7 @@ const About = () => {
             variants={fadeInUp}
             className="text-[clamp(3rem,15vw,12rem)] font-bold uppercase tracking-[-0.08em] leading-[0.8] italic font-serif"
           >
-            The <span className="text-stroke not-italic font-sans">Mind</span> <br />
+            The <span className="text-stroke not-italic font-display">Mind</span> <br />
             <span className="md:ml-[20%]">Behind.</span>
           </motion.h2>
         </div>
@@ -93,7 +93,7 @@ const About = () => {
         transition={{ duration: 2 }}
         className="absolute bottom-0 right-[-10%] select-none pointer-events-none"
       >
-        <span className="text-[30vw] font-bold text-stroke-cyan leading-none">ABOUT</span>
+        <span className="text-[30vw] font-bold text-stroke-cyan leading-none hover-glitch">ABOUT</span>
       </motion.div>
     </motion.section>
   );

@@ -23,7 +23,7 @@ const Expertise = () => {
         >
           <div className="w-4 h-4 bg-white rounded-full shadow-[0_0_30px_rgba(255,255,255,0.5)]"></div>
         </motion.div>
-        <h2 className="mt-12 text-[clamp(2.5rem,8vw,6rem)] font-bold uppercase tracking-[-0.05em] leading-none text-center">
+        <h2 className="mt-12 text-[clamp(4rem,12vw,10rem)] font-display uppercase tracking-[-0.02em] leading-[0.8] text-center hover-glitch transition-all">
           NEURAL <br /> <span className="text-stroke">EXPERTISE.</span>
         </h2>
         <span className="text-[10px] uppercase tracking-[0.8em] opacity-30 mt-8">Technical Constellation // v1.0</span>

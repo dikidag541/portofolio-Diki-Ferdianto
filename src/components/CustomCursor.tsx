@@ -6,7 +6,7 @@ const CustomCursor = () => {
 
   useEffect(() => {
     const cursor = document.querySelector('.custom-cursor');
-    
+
     const moveCursor = (e: MouseEvent) => {
       const radius = isHovered ? 30 : 3;
       gsap.to(cursor, {

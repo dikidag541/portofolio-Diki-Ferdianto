@@ -16,7 +16,7 @@ const Navigation = () => {
   }, []);
 
   const scrollToStation = (index: number) => {
-    const stops = [0.04, 0.22, 0.40, 0.67, 0.96];
+    const stops = [0.025, 0.175, 0.325, 0.475, 0.725, 0.975];
     const targetScroll = stops[index] * (document.documentElement.scrollHeight - window.innerHeight);
     
     window.scrollTo({
@@ -37,7 +37,7 @@ const Navigation = () => {
       </div>
       
       <div className="flex gap-4 md:gap-8 pointer-events-auto">
-        {['About', 'Skill', 'Porto', 'Contact'].map((item, i) => (
+        {['Identity', 'About', 'Skill', 'Porto', 'Contact'].map((item, i) => (
           <Magnetic key={item}>
             <button 
               onClick={() => scrollToStation(i + 1)}

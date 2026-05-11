@@ -1,13 +1,14 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Italiana&family=Outfit:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Italiana&family=Outfit:wght@100..900&display=swap');
 
 @theme {
-  --color-off-black: #080808;
+  --color-off-black: #050505;
   --color-off-white: #fafafa;
   --color-neural-cyan: #00f2ff;
   --color-neural-purple: #7000ff;
   --font-sans: "Outfit", "Inter", system-ui, sans-serif;
   --font-serif: "Italiana", "Playfair Display", serif;
+  --font-display: "Bebas Neue", "Inter", sans-serif;
 }
 
 :root {
@@ -25,13 +26,13 @@
 
 @layer base {
   body {
-    @apply bg-off-black text-off-white overflow-x-hidden selection:bg-off-white selection:text-off-black;
+    @apply bg-off-black text-off-white overflow-x-hidden selection:bg-neural-cyan selection:text-off-black;
   }
 
   h1,
   h2,
   h3 {
-    @apply tracking-tighter font-medium;
+    @apply tracking-tighter font-display;
   }
 }
 
@@ -123,6 +124,28 @@
   @apply transition-all duration-700 ease-[cubic-bezier(0.19,1,0.22,1)];
 }
 
+.text-reveal {
+  @apply overflow-hidden leading-none;
+}
+
+.text-reveal-inner {
+  @apply block transition-transform duration-1000 ease-[cubic-bezier(0.19,1,0.22,1)];
+}
+
+.hover-glitch:hover {
+  text-shadow: 2px 0 #00f2ff, -2px 0 #7000ff;
+  animation: glitch 0.3s infinite;
+}
+
+@keyframes glitch {
+  0% { transform: translate(0) }
+  20% { transform: translate(-2px, 2px) }
+  40% { transform: translate(-2px, -2px) }
+  60% { transform: translate(2px, 2px) }
+  80% { transform: translate(2px, -2px) }
+  100% { transform: translate(0) }
+}
+
 /* Custom Cursor Styles */
 .custom-cursor {
   position: fixed;
@@ -164,35 +187,67 @@
 .animate-scan {
   animation: scan 4s linear infinite;
 }
+
 /* Global Effects */
 .bg-scanlines {
-  background: linear-gradient(
-    rgba(18, 16, 16, 0) 50%,
-    rgba(0, 0, 0, 0.25) 50%
-  ),
-  linear-gradient(
-    90deg,
-    rgba(255, 0, 0, 0.06),
-    rgba(0, 255, 0, 0.02),
-    rgba(0, 0, 255, 0.06)
-  );
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%,
+      rgba(0, 0, 0, 0.25) 50%),
+    linear-gradient(90deg,
+      rgba(255, 0, 0, 0.06),
+      rgba(0, 255, 0, 0.02),
+      rgba(0, 0, 255, 0.06));
   background-size: 100% 4px, 3px 100%;
   pointer-events: none;
 }
 
 @keyframes flicker {
-  0% { opacity: 0.1; }
-  5% { opacity: 0.2; }
-  10% { opacity: 0.1; }
-  15% { opacity: 0.3; }
-  25% { opacity: 0.2; }
-  35% { opacity: 0.4; }
-  50% { opacity: 0.2; }
-  65% { opacity: 0.5; }
-  75% { opacity: 0.2; }
-  85% { opacity: 0.3; }
-  90% { opacity: 0.2; }
-  100% { opacity: 0.1; }
+  0% {
+    opacity: 0.1;
+  }
+
+  5% {
+    opacity: 0.2;
+  }
+
+  10% {
+    opacity: 0.1;
+  }
+
+  15% {
+    opacity: 0.3;
+  }
+
+  25% {
+    opacity: 0.2;
+  }
+
+  35% {
+    opacity: 0.4;
+  }
+
+  50% {
+    opacity: 0.2;
+  }
+
+  65% {
+    opacity: 0.5;
+  }
+
+  75% {
+    opacity: 0.2;
+  }
+
+  85% {
+    opacity: 0.3;
+  }
+
+  90% {
+    opacity: 0.2;
+  }
+
+  100% {
+    opacity: 0.1;
+  }
 }
 
 .animate-flicker {

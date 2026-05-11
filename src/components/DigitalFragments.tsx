@@ -1,20 +1,41 @@
-const FRAGMENTS = [
-  { text: "0xA4F2_SYNTAX", x: "120vw", y: "80vh", rotate: -15, scale: 0.8 },
-  { text: "NEURAL_ENGINE_ACTIVE", x: "180vw", y: "130vh", rotate: 5, scale: 0.6 },
-  { text: "v0.33.0_RELEASE", x: "240vw", y: "210vh", rotate: -5, scale: 0.7 },
-  { text: "EST. 2026 // BEYOND", x: "80vw", y: "250vh", rotate: 10, scale: 0.5 },
-  { text: "INFORMATIKA.UNEJ", x: "320vw", y: "150vh", rotate: -20, scale: 0.9 },
-  { text: "JSX_PRIMITIVE_RENDER", x: "280vw", y: "290vh", rotate: 0, scale: 0.6 },
-  { text: "HIGH_FIDELITY_MOTION", x: "60vw", y: "180vh", rotate: 45, scale: 0.4 }
+import { useMemo } from 'react';
+
+const DIGITAL_WORDS = [
+  "0xA4F2_SYNTAX", "NEURAL_ENGINE_ACTIVE", "v0.33.0_RELEASE", "EST. 2026", 
+  "INFORMATIKA.UNEJ", "JSX_RENDER", "HIGH_FIDELITY", "NULL_PTR", 
+  "MEM_LEAK_DETECTED", "SYS_OVERRIDE", "QUANTUM_STATE", "GALACTIC_RAILWAY",
+  "AESTHETIC_PROTOCOL", "PORT:8080", "VITE_HMR_ACTIVE", "REACT_STRICT_MODE"
 ];
 
 const DigitalFragments = () => {
+  // Use useMemo to prevent re-generation on re-renders, simulating server/client consistency if needed
+  const fragments = useMemo(() => {
+    return Array.from({ length: 35 }).map(() => ({
+      text: DIGITAL_WORDS[Math.floor(Math.random() * DIGITAL_WORDS.length)],
+      x: `${Math.random() * 800}vw`,
+      y: `${Math.random() * 800}vh`,
+      rotate: (Math.random() - 0.5) * 90,
+      scale: 0.3 + Math.random() * 0.7,
+    }));
+  }, []);
+
+  const glyphs = useMemo(() => {
+    return Array.from({ length: 150 }).map(() => ({
+      x: `${Math.random() * 800}vw`,
+      y: `${Math.random() * 800}vh`,
+      w: `${Math.random() * 80 + 20}px`,
+      h: `${Math.random() * 2 + 1}px`,
+      rotate: Math.random() * 360,
+      opacity: 0.05 + Math.random() * 0.1
+    }));
+  }, []);
+
   return (
     <div className="absolute inset-0 pointer-events-none select-none z-[-1]">
-      {FRAGMENTS.map((f, i) => (
+      {fragments.map((f, i) => (
         <div 
-          key={i}
-          className="absolute font-mono text-off-white/5 whitespace-nowrap"
+          key={`text-${i}`}
+          className="absolute font-mono text-off-white/5 whitespace-nowrap mix-blend-overlay"
           style={{ 
             top: f.y, 
             left: f.x, 
@@ -29,18 +50,18 @@ const DigitalFragments = () => {
         </div>
       ))}
       
-      {/* Small Geometric Glyphs */}
-      {[...Array(12)].map((_, i) => (
+      {/* Small Geometric Glyphs / Tech Lines */}
+      {glyphs.map((g, i) => (
         <div 
           key={`glyph-${i}`}
-          className="absolute border border-off-white/5"
+          className="absolute border border-neural-cyan/10"
           style={{
-            top: `${Math.random() * 400}vh`,
-            left: `${Math.random() * 400}vw`,
-            width: `${Math.random() * 100 + 50}px`,
-            height: `${Math.random() * 2}px`,
-            transform: `rotate(${Math.random() * 360}deg)`,
-            opacity: 0.1
+            top: g.y,
+            left: g.x,
+            width: g.w,
+            height: g.h,
+            transform: `rotate(${g.rotate}deg)`,
+            opacity: g.opacity
           }}
         />
       ))}

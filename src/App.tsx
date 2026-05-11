@@ -5,7 +5,7 @@ import Navigation from './components/Navigation'
 import Hero from './components/Hero'
 import Projects from './components/Projects'
 import About from './components/About'
-import StationAtmosphere from './components/StationAtmosphere'
+import GalacticWorld from './components/GalacticWorld'
 import CanvasWrapper from './components/CanvasWrapper'
 import NavigationalPaths from './components/NavigationalPaths'
 import DigitalFragments from './components/DigitalFragments'
@@ -13,6 +13,7 @@ import Contact from './components/Contact'
 import Preloader from './components/Preloader'
 import SpaceDebris from './components/SpaceDebris'
 import Expertise from './components/Expertise'
+import Identity from './components/Identity'
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -25,9 +26,7 @@ function App() {
         )}
       </AnimatePresence>
 
-      <div className="fixed inset-0 bg-transparent pointer-events-none z-[-10]">
-        <StationAtmosphere />
-      </div>
+      <GalacticWorld />
       <div className="bg-grain"></div>
       
       <CustomCursor />
@@ -38,12 +37,19 @@ function App() {
         <NavigationalPaths />
         <SpaceDebris />
 
-        {/* 0: Hero - (400, 400) */}
         <div 
           className="absolute w-screen h-screen flex items-center justify-center pointer-events-auto"
           style={{ top: '400vh', left: '400vw', transform: 'translate(-50%, -50%)' }}
         >
           <Hero />
+        </div>
+
+        {/* 1: Identity - (150, 250) */}
+        <div 
+          className="absolute w-screen h-screen flex items-center justify-center pointer-events-auto"
+          style={{ top: '250vh', left: '150vw', transform: 'translate(-50%, -50%)' }}
+        >
+          <Identity />
         </div>
 
         {/* 1: About - (170, 650) */}

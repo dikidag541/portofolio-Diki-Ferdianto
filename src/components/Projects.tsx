@@ -87,41 +87,41 @@ const Projects = () => {
         <div className="relative w-full overflow-visible">
           <motion.div style={{ x }} className="flex gap-12 px-[10vw]">
             {PROJECTS.map((project, index) => (
-                <Magnetic key={index}>
-                  <div
-                    onClick={() => {
-                      setSelectedProject(project);
-                      setIsModalOpen(true);
-                    }}
-                    className="group relative flex-shrink-0 w-[85vw] md:w-[65vw] aspect-[21/9] md:aspect-[16/7] overflow-hidden cursor-pointer pointer-events-auto"
-                  >
-                    {/* Image Layer - Lighter and clearer */}
-                    <div className="absolute inset-0 grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-1000 ease-smooth">
-                      <img
-                        src={project.image}
-                        alt={project.title}
-                        className="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-1000"
-                      />
-                      <div className="absolute inset-0 bg-grain opacity-10 mix-blend-overlay"></div>
-                      <div className="absolute inset-0 bg-gradient-to-t from-off-black/60 via-transparent to-transparent"></div>
-                    </div>
+              <Magnetic key={index}>
+                <div
+                  onClick={() => {
+                    setSelectedProject(project);
+                    setIsModalOpen(true);
+                  }}
+                  className="group relative flex-shrink-0 w-[85vw] md:w-[65vw] aspect-[21/9] md:aspect-[16/7] overflow-hidden cursor-pointer pointer-events-auto"
+                >
+                  {/* Image Layer - Lighter and clearer */}
+                  <div className="absolute inset-0 grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-1000 ease-smooth">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-1000"
+                    />
+                    <div className="absolute inset-0 bg-grain opacity-10 mix-blend-overlay"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-off-black/60 via-transparent to-transparent"></div>
+                  </div>
 
-                    {/* Metadata */}
-                    <div className="absolute inset-0 flex flex-col justify-between p-8 md:p-12 z-10 pointer-events-none">
-                      <div className="flex justify-between items-start">
-                        <span className="text-[10px] font-mono tracking-widest text-white/50 italic">{project.year}</span>
-                        <span className="text-[10px] font-mono tracking-widest text-white/50">FRAG_{index + 1}</span>
-                      </div>
-                      <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-700">
-                        <h3 className="text-3xl md:text-7xl font-bold uppercase tracking-tighter mb-1">{project.title}</h3>
-                        <div className="flex items-center gap-4">
-                          <div className="w-8 h-[1px] bg-off-white/40"></div>
-                          <span className="text-[10px] uppercase tracking-[0.6em] opacity-50">{project.category}</span>
-                        </div>
+                  {/* Metadata */}
+                  <div className="absolute inset-0 flex flex-col justify-between p-8 md:p-12 z-10 pointer-events-none">
+                    <div className="flex justify-between items-start">
+                      <span className="text-[10px] font-mono tracking-widest text-white/50 italic">{project.year}</span>
+                      <span className="text-[10px] font-mono tracking-widest text-white/50">FRAG_{index + 1}</span>
+                    </div>
+                    <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-700">
+                      <h3 className="text-3xl md:text-7xl font-bold uppercase tracking-tighter mb-1">{project.title}</h3>
+                      <div className="flex items-center gap-4">
+                        <div className="w-8 h-[1px] bg-off-white/40"></div>
+                        <span className="text-[10px] uppercase tracking-[0.6em] opacity-50">{project.category}</span>
                       </div>
                     </div>
                   </div>
-                </Magnetic>
+                </div>
+              </Magnetic>
             ))}
           </motion.div>
         </div>
@@ -133,10 +133,10 @@ const Projects = () => {
         </div>
       </section>
 
-      <ProjectModal 
-        project={selectedProject} 
-        isOpen={isModalOpen} 
-        onClose={() => setIsModalOpen(false)} 
+      <ProjectModal
+        project={selectedProject}
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
       />
     </>
   );

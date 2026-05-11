@@ -101,7 +101,7 @@ const Hero = () => {
         <div className="text-center w-full px-4">
           <h1
             ref={titleRef}
-            className="text-[clamp(4rem,18vw,20rem)] font-bold uppercase leading-[0.85] tracking-[-0.07em] overflow-visible drop-shadow-[0_0_20px_rgba(0,242,255,0.15)] whitespace-nowrap text-white"
+            className="text-[clamp(4rem,22vw,24rem)] font-display uppercase leading-[0.75] tracking-[-0.02em] overflow-visible drop-shadow-[0_0_20px_rgba(0,242,255,0.15)] whitespace-nowrap text-white"
           >
             DIKI<br />
             <span className="font-serif italic lowercase tracking-tight -mt-4 block pl-[5vw] text-off-white/90">ferdianto</span>

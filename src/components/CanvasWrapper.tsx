@@ -7,19 +7,19 @@ interface CanvasWrapperProps {
 
 const WAYPOINTS = [
   { x: 400, y: 400 }, // 0: Hero Center
-  { x: 170, y: 650 }, // 1: About Center
-  { x: 450, y: 750 }, // 2: Expertise Center (New)
-  { x: 740, y: 410 }, // 3: Porto Center (Slightly adjusted)
-  { x: 650, y: 150 }, // 4: Contact Center
+  { x: 150, y: 250 }, // 1: Identity Center (New)
+  { x: 170, y: 650 }, // 2: About Center
+  { x: 450, y: 750 }, // 3: Expertise Center
+  { x: 740, y: 410 }, // 4: Porto Center
+  { x: 650, y: 150 }, // 5: Contact Center
 ];
 
 const CanvasWrapper = ({ children }: CanvasWrapperProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll();
   
-  // Dwell mapping: [Start, Stay, Travel, Stay, Travel, Stay, Travel, Stay (PORTO), Travel, Stay]
-  // Hero (0-0.08), About (0.18-0.26), Skill (0.36-0.44), Porto (0.50-0.85), Contact (0.93-1.0)
-  const scrollRange = [0, 0.08, 0.18, 0.26, 0.36, 0.44, 0.50, 0.85, 0.93, 1.0];
+  // Updated dwell mapping with 6 stations
+  const scrollRange = [0, 0.05, 0.15, 0.20, 0.30, 0.35, 0.45, 0.50, 0.60, 0.85, 0.95, 1.0];
   
   const xWaypoints = [];
   const yWaypoints = [];
@@ -68,7 +68,7 @@ const CanvasWrapper = ({ children }: CanvasWrapperProps) => {
   const springScale = useSpring(scale, { damping: 30, stiffness: 100 });
 
   return (
-    <div className="fixed inset-0 bg-off-black overflow-hidden cursor-grab active:cursor-grabbing select-none z-0">
+    <div className="fixed inset-0 bg-transparent overflow-hidden cursor-grab active:cursor-grabbing select-none z-[10]">
       <motion.div
          ref={containerRef}
          className="relative w-[800vw] h-[800vh]"

@@ -5,6 +5,7 @@ const NavigationalPaths = () => {
 
   const coords = {
     hero: { x: "50%", y: "50%" },
+    identity: { x: "18.75%", y: "31.25%" }, // 150/800, 250/800
     about: { x: "21.25%", y: "81.25%" },
     expertise: { x: "56.25%", y: "93.75%" }, // 450/800, 750/800
     projects: { x: "92.5%", y: "51.25%" },  // 740/800, 410/800
@@ -12,10 +13,11 @@ const NavigationalPaths = () => {
   };
 
   const lines = [
-    { start: coords.hero, end: coords.about, range: [0.08, 0.18] },
-    { start: coords.about, end: coords.expertise, range: [0.26, 0.36] },
-    { start: coords.expertise, end: coords.projects, range: [0.44, 0.50] },
-    { start: coords.projects, end: coords.contact, range: [0.85, 0.93] },
+    { start: coords.hero, end: coords.identity, range: [0.05, 0.15] },
+    { start: coords.identity, end: coords.about, range: [0.20, 0.30] },
+    { start: coords.about, end: coords.expertise, range: [0.35, 0.45] },
+    { start: coords.expertise, end: coords.projects, range: [0.50, 0.60] },
+    { start: coords.projects, end: coords.contact, range: [0.85, 0.95] },
   ];
 
   return (
