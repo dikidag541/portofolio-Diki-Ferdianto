@@ -27,12 +27,21 @@
 @layer base {
   body {
     @apply bg-off-black text-off-white overflow-x-hidden selection:bg-neural-cyan selection:text-off-black;
+    touch-action: pan-y;
+    -webkit-tap-highlight-color: transparent;
   }
 
   h1,
   h2,
   h3 {
     @apply tracking-tighter font-display;
+  }
+}
+
+/* Hide custom cursor on touch devices */
+@media (hover: none) {
+  .custom-cursor {
+    display: none !important;
   }
 }
 

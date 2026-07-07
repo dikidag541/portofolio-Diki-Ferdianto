@@ -14,9 +14,26 @@ import Preloader from './components/Preloader'
 import SpaceDebris from './components/SpaceDebris'
 import Expertise from './components/Expertise'
 import Identity from './components/Identity'
+import MobileLayout from './components/MobileLayout'
+import useIsMobile from './hooks/useIsMobile'
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
+  const isMobile = useIsMobile();
+
+  // Render a dedicated, standard vertical-scroll layout for mobile devices
+  if (isMobile) {
+    return (
+      <>
+        <AnimatePresence mode="wait">
+          {isLoading && (
+            <Preloader key="preloader" onComplete={() => setIsLoading(false)} />
+          )}
+        </AnimatePresence>
+        {!isLoading && <MobileLayout />}
+      </>
+    );
+  }
 
   return (
     <>
