@@ -69,7 +69,7 @@ const CameraController = () => {
   const { scrollYProgress } = useScroll();
   const cameraRef = useRef<THREE.PerspectiveCamera>(null);
 
-  useFrame((state) => {
+  useFrame((_state) => {
     if (!cameraRef.current) return;
     
     const scrollVal = scrollYProgress.get();
@@ -107,7 +107,7 @@ const GalacticWorld = () => {
         <Stars radius={150} depth={60} count={7000} factor={6} saturation={1} fade speed={2} />
         
         {/* Subtle Grid */}
-        <gridHelper args={[200, 40, '#d1cfc7', '#e8e6e1']} position={[0, -8, 0]} opacity={0.5} transparent />
+        <gridHelper args={[200, 40, '#d1cfc7', '#e8e6e1']} position={[0, -8, 0]} />
         
         <RailwayTrack />
       </Canvas>
