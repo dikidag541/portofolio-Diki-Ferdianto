@@ -52,10 +52,10 @@ function App() {
           <Identity />
         </div>
 
-        {/* 1: About - (170, 650) */}
+        {/* 1: About - (185, 650) */}
         <div 
           className="absolute w-[140vw] flex items-center justify-center pointer-events-auto"
-          style={{ top: '650vh', left: '170vw', transform: 'translate(-50%, -50%)' }}
+          style={{ top: '650vh', left: '185vw', transform: 'translate(-50%, -50%)' }}
         >
            <About />
         </div>

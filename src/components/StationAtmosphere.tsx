@@ -45,13 +45,13 @@ const StationAtmosphere = () => {
               <img
                 src={ASSETS[station.id]}
                 alt=""
-                className="w-full h-full object-cover opacity-40 mix-blend-screen grayscale-[0.5] brightness-75 transition-all duration-1000"
+                className="w-full h-full object-cover opacity-20 mix-blend-multiply grayscale-[0.5] transition-all duration-1000"
               />
             </motion.div>
             
             {/* Thematic Glow */}
             <div 
-              className="absolute inset-0 opacity-20 mix-blend-overlay"
+              className="absolute inset-0 opacity-10 mix-blend-multiply"
               style={{ backgroundColor: station.color }}
             ></div>
           </motion.div>
@@ -80,7 +80,7 @@ const StationAtmosphere = () => {
            <motion.path
              key={i}
              d={`M ${Math.random() * 100} 0 Q ${Math.random() * 100} 50 ${Math.random() * 100} 100`}
-             stroke="white"
+             stroke="var(--off-white)"
              strokeWidth="0.5"
              fill="transparent"
              initial={{ pathLength: 0, opacity: 0, pathOffset: 0 }}
@@ -110,7 +110,7 @@ const StationAtmosphere = () => {
         <div className="absolute inset-0 bg-scanlines opacity-[0.03]"></div>
         
         {/* CRT Flicker */}
-        <div className="absolute inset-0 bg-white/5 opacity-0 animate-flicker pointer-events-none"></div>
+        <div className="absolute inset-0 bg-off-white/5 opacity-0 animate-flicker pointer-events-none"></div>
       </div>
 
       {/* Global Grain & Vignette */}

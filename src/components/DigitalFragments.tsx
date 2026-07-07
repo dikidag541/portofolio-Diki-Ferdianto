@@ -35,7 +35,7 @@ const DigitalFragments = () => {
       {fragments.map((f, i) => (
         <div 
           key={`text-${i}`}
-          className="absolute font-mono text-off-white/5 whitespace-nowrap mix-blend-overlay"
+          className="absolute font-mono text-off-white/10 whitespace-nowrap mix-blend-multiply"
           style={{ 
             top: f.y, 
             left: f.x, 
@@ -43,7 +43,7 @@ const DigitalFragments = () => {
             fontSize: "clamp(1rem, 5vw, 6rem)",
             fontWeight: "bold",
             letterSpacing: "0.2em",
-            textShadow: "0 0 20px rgba(250,250,250,0.05)"
+            textShadow: "none"
           }}
         >
           {f.text}
@@ -54,7 +54,7 @@ const DigitalFragments = () => {
       {glyphs.map((g, i) => (
         <div 
           key={`glyph-${i}`}
-          className="absolute border border-neural-cyan/10"
+          className="absolute border border-neural-cyan/20"
           style={{
             top: g.y,
             left: g.x,

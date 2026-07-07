@@ -5,7 +5,7 @@ import ProjectModal from './ProjectModal';
 
 const PROJECTS = [
   {
-    title: "UKM KETALASE",
+    title: "UKMK KETALASE",
     category: "Arts & Creativity",
     image: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=2070&auto=format&fit=crop",
     year: "2024",
@@ -37,7 +37,7 @@ const PROJECTS = [
     description: "Show management and event production experts. Designing dreams and crafting professional experiences at scale."
   },
   {
-    title: "NURUL AI",
+    title: "NURUL ALI",
     category: "Islamic Education",
     image: "https://images.unsplash.com/photo-1542810634-71277d95dcbb?q=80&w=2070&auto=format&fit=crop",
     year: "2024",
@@ -75,9 +75,9 @@ const Projects = () => {
             SELECTED<br />PORTO.
           </h2>
           <motion.div className="flex items-center gap-4 mt-4">
-            <span className="text-[10px] uppercase tracking-[0.8em] opacity-30">Archive Transmission</span>
-            <div className="h-[1px] w-12 bg-white/20"></div>
-            <span className="text-[10px] font-mono font-bold">
+            <span className="text-[10px] uppercase tracking-[0.8em] opacity-40">Archive Transmission</span>
+            <div className="h-[1px] w-12 bg-off-white/20"></div>
+            <span className="text-[10px] font-mono font-bold opacity-60">
               PROJECT {displayIndex}/5
             </span>
           </motion.div>
@@ -102,15 +102,15 @@ const Projects = () => {
                       alt={project.title}
                       className="w-full h-full object-cover scale-100 group-hover:scale-105 transition-transform duration-1000"
                     />
-                    <div className="absolute inset-0 bg-grain opacity-10 mix-blend-overlay"></div>
+                    <div className="absolute inset-0 bg-grain opacity-10 mix-blend-multiply"></div>
                     <div className="absolute inset-0 bg-gradient-to-t from-off-black/60 via-transparent to-transparent"></div>
                   </div>
 
                   {/* Metadata */}
                   <div className="absolute inset-0 flex flex-col justify-between p-8 md:p-12 z-10 pointer-events-none">
                     <div className="flex justify-between items-start">
-                      <span className="text-[10px] font-mono tracking-widest text-white/50 italic">{project.year}</span>
-                      <span className="text-[10px] font-mono tracking-widest text-white/50">FRAG_{index + 1}</span>
+                      <span className="text-[10px] font-mono tracking-widest text-off-white/60 italic">{project.year}</span>
+                      <span className="text-[10px] font-mono tracking-widest text-off-white/60">FRAG_{index + 1}</span>
                     </div>
                     <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-700">
                       <h3 className="text-3xl md:text-7xl font-bold uppercase tracking-tighter mb-1">{project.title}</h3>
@@ -126,11 +126,7 @@ const Projects = () => {
           </motion.div>
         </div>
 
-        {/* Scroll Instruction */}
-        <div className="absolute bottom-12 right-[5vw] opacity-20 hidden md:flex items-center gap-4">
-          <span className="text-[8px] uppercase tracking-[0.8em]">Scroll to Navigate Archive</span>
-          <div className="w-12 h-px bg-white"></div>
-        </div>
+        {/* Scroll Instruction Removed to prevent overlap with global CanvasWrapper text */}
       </section>
 
       <ProjectModal

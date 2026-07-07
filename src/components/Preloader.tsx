@@ -26,7 +26,12 @@ const Preloader = ({ onComplete }: { onComplete: () => void }) => {
     }, 30);
 
     const msgInterval = setInterval(() => {
-      setMsgIndex(prev => (prev + 1) % MESSAGES.length);
+      setMsgIndex(prev => {
+        if (prev < MESSAGES.length - 1) {
+          return prev + 1;
+        }
+        return prev;
+      });
     }, 800);
 
     return () => {
@@ -49,7 +54,7 @@ const Preloader = ({ onComplete }: { onComplete: () => void }) => {
              key={msgIndex}
              initial={{ opacity: 0, y: 10 }}
              animate={{ opacity: 1, y: 0 }}
-             className="text-[10px] uppercase tracking-[0.4em] font-mono text-white/40"
+             className="text-[10px] uppercase tracking-[0.4em] font-mono text-off-white/40"
            >
              {MESSAGES[msgIndex]}
            </motion.span>
@@ -58,9 +63,9 @@ const Preloader = ({ onComplete }: { onComplete: () => void }) => {
            </span>
         </div>
         
-        <div className="w-full h-[2px] bg-white/5 relative overflow-hidden">
+        <div className="w-full h-[2px] bg-off-white/10 relative overflow-hidden">
           <motion.div 
-            className="absolute top-0 left-0 h-full bg-white origin-left"
+            className="absolute top-0 left-0 h-full bg-off-white origin-left"
             style={{ width: `${percent}%` }}
             transition={{ type: 'spring', damping: 20, stiffness: 100 }}
           />
@@ -73,10 +78,10 @@ const Preloader = ({ onComplete }: { onComplete: () => void }) => {
       </div>
       
       {/* Decorative corners */}
-      <div className="absolute top-12 left-12 w-8 h-8 border-t border-l border-white/20"></div>
-      <div className="absolute top-12 right-12 w-8 h-8 border-t border-r border-white/20"></div>
-      <div className="absolute bottom-12 left-12 w-8 h-8 border-b border-l border-white/20"></div>
-      <div className="absolute bottom-12 right-12 w-8 h-8 border-b border-r border-white/20"></div>
+      <div className="absolute top-12 left-12 w-8 h-8 border-t border-l border-off-white/20"></div>
+      <div className="absolute top-12 right-12 w-8 h-8 border-t border-r border-off-white/20"></div>
+      <div className="absolute bottom-12 left-12 w-8 h-8 border-b border-l border-off-white/20"></div>
+      <div className="absolute bottom-12 right-12 w-8 h-8 border-b border-r border-off-white/20"></div>
     </motion.div>
   );
 };

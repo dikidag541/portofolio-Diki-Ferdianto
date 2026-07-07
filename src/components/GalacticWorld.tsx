@@ -28,12 +28,12 @@ const ParticleField = () => {
     <Points ref={ref} positions={positions} stride={3} frustumCulled={false}>
       <PointMaterial
         transparent
-        color="#00f2ff"
-        size={0.08} // Bigger stars
+        color="#2a2a2a"
+        size={0.08}
         sizeAttenuation={true}
         depthWrite={false}
-        blending={THREE.AdditiveBlending}
-        opacity={0.8}
+        blending={THREE.NormalBlending}
+        opacity={0.2}
       />
     </Points>
   );
@@ -55,11 +55,11 @@ const RailwayTrack = () => {
   return (
     <group>
       <mesh geometry={lineGeometry}>
-        <meshBasicMaterial color="#00f2ff" transparent opacity={0.4} wireframe />
+        <meshBasicMaterial color="#7a8fa3" transparent opacity={0.2} wireframe />
       </mesh>
       {/* Outer glow track */}
       <mesh geometry={lineGeometry}>
-        <meshBasicMaterial color="#7000ff" transparent opacity={0.15} />
+        <meshBasicMaterial color="#a69e94" transparent opacity={0.1} />
       </mesh>
     </group>
   );
@@ -92,11 +92,11 @@ const GalacticWorld = () => {
   return (
     <div className="fixed inset-0 z-[1] pointer-events-none">
       <Canvas dpr={[1, 2]}>
-        <color attach="background" args={['#020202']} />
-        <fog attach="fog" args={['#020202', 10, 50]} />
+        <color attach="background" args={['#f4f4f0']} />
+        <fog attach="fog" args={['#f4f4f0', 10, 50]} />
         
-        <ambientLight intensity={1} />
-        <pointLight position={[10, 10, 10]} intensity={2} color="#00f2ff" />
+        <ambientLight intensity={1.5} />
+        <pointLight position={[10, 10, 10]} intensity={1} color="#ffffff" />
         
         <CameraController />
         
@@ -106,8 +106,8 @@ const GalacticWorld = () => {
         
         <Stars radius={150} depth={60} count={7000} factor={6} saturation={1} fade speed={2} />
         
-        {/* Bright Obvious Grid */}
-        <gridHelper args={[200, 40, '#00f2ff', '#7000ff']} position={[0, -8, 0]} opacity={0.3} transparent />
+        {/* Subtle Grid */}
+        <gridHelper args={[200, 40, '#d1cfc7', '#e8e6e1']} position={[0, -8, 0]} opacity={0.5} transparent />
         
         <RailwayTrack />
       </Canvas>

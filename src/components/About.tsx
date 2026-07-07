@@ -39,17 +39,17 @@ const About = () => {
           <motion.div variants={fadeInUp} className="overflow-hidden mb-8">
             <span className="text-[10px] uppercase tracking-[0.6em] opacity-30 block">Context // Information</span>
           </motion.div>
-          <motion.p variants={fadeInUp} className="text-lg md:text-2xl leading-relaxed tracking-tight opacity-70 mb-12">
-            Engineering the intersection of high-fidelity aesthetics and neural logic. Founder of SyntaxWeb.id and Software Engineer at Universitas Jember. My mission is to decode complex systems into premium, seamless digital narratives.
+          <motion.p variants={fadeInUp} className="text-lg md:text-xl leading-relaxed tracking-tight opacity-70 mb-12">
+            Mahasiswa Informatika di Universitas Jember yang berfokus pada System Analysis, Backend, dan Fullstack Web Development. Berpengalaman merancang arsitektur sistem (UML, SDLC), mengintegrasikan basis data, serta mengimplementasikan machine learning dan forecasting untuk optimasi sistem informasi.
           </motion.p>
 
           <motion.div variants={staggerContainer} className="capabilities-grid space-y-6">
             <span className="text-[10px] uppercase tracking-[0.4em] font-bold opacity-20 block mb-4 border-b border-off-white/10 pb-4">Specialties</span>
             {[
-              'Web Architecture',
-              'AI Integration',
-              'Motion Design',
-              'Mobile Engineering'
+              'System Analysis & UML',
+              'Backend Engineering',
+              'Fullstack Development',
+              'Mobile Development'
             ].map((item, idx) => (
               <motion.div
                 key={idx}
@@ -80,7 +80,7 @@ const About = () => {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-off-black via-transparent to-transparent opacity-60"></div>
           </div>
-          <div className="absolute top-8 right-8 mix-blend-difference">
+          <div className="absolute top-8 right-8 mix-blend-multiply">
             <span className="text-[10px] uppercase tracking-[0.6em] font-bold opacity-30 italic">v2.0_IDENTITY</span>
           </div>
         </motion.div>

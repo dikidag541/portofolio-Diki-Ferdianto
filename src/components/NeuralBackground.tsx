@@ -65,7 +65,7 @@ const NeuralBackground = () => {
         this.vx = (Math.random() - 0.5) * 0.3;
         this.vy = (Math.random() - 0.5) * 0.3;
         this.size = Math.random() * 1.5;
-        this.color = Math.random() > 0.5 ? 'rgba(0, 242, 255, 0.2)' : 'rgba(250, 250, 250, 0.15)';
+        this.color = Math.random() > 0.5 ? 'rgba(122, 143, 163, 0.2)' : 'rgba(28, 28, 28, 0.15)';
       }
 
       update() {
@@ -94,9 +94,9 @@ const NeuralBackground = () => {
       }
       
       const blobColors = [
-        'rgba(0, 242, 255, 0.05)', // Cyan
-        'rgba(112, 0, 255, 0.04)',  // Purple
-        'rgba(0, 150, 255, 0.03)'   // Blue
+        'rgba(122, 143, 163, 0.05)', // Slate
+        'rgba(166, 158, 148, 0.04)',  // Warm gray
+        'rgba(28, 28, 28, 0.03)'   // Ink
       ];
       for (let i = 0; i < blobCount; i++) {
         blobs.push(new GlowBlob(blobColors[i % blobColors.length]));
@@ -113,8 +113,8 @@ const NeuralBackground = () => {
           if (distance < 150) {
             ctx.beginPath();
             const opacity = 0.08 * (1 - distance / 150);
-            const isColored = particles[i].color.includes('242');
-            ctx.strokeStyle = isColored ? `rgba(0, 242, 255, ${opacity})` : `rgba(250, 250, 250, ${opacity})`;
+            const isColored = particles[i].color.includes('122');
+            ctx.strokeStyle = isColored ? `rgba(122, 143, 163, ${opacity})` : `rgba(28, 28, 28, ${opacity})`;
             ctx.lineWidth = 0.5;
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
@@ -157,7 +157,7 @@ const NeuralBackground = () => {
   return (
     <canvas 
       ref={canvasRef}
-      className="fixed inset-0 pointer-events-none z-0 opacity-40 mix-blend-screen"
+      className="fixed inset-0 pointer-events-none z-0 opacity-40 mix-blend-multiply"
     />
   );
 };

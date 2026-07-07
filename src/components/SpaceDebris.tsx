@@ -43,13 +43,13 @@ const SpaceDebris = () => {
           }}
         >
           <div className="flex flex-col items-center gap-2">
-             <div className="w-px h-12 bg-gradient-to-b from-white/30 to-transparent"></div>
-             <span className="text-[8px] uppercase tracking-[0.8em] font-mono font-bold whitespace-nowrap text-white/40 text-stroke-thin">
+             <div className="w-px h-12 bg-gradient-to-b from-off-white/30 to-transparent"></div>
+             <span className="text-[8px] uppercase tracking-[0.8em] font-mono font-bold whitespace-nowrap text-off-white/40 text-stroke-thin">
                {item.label} :: {Math.floor(Math.random() * 99)}
              </span>
              <div className="flex gap-2 mt-1 opacity-50">
                 {[...Array(3)].map((_, i) => (
-                  <div key={i} className={`w-1 h-1 rounded-full ${i === 1 ? 'bg-neural-cyan shadow-[0_0_5px_rgba(0,242,255,0.8)]' : 'bg-white/20'}`}></div>
+                  <div key={i} className={`w-1 h-1 rounded-full ${i === 1 ? 'bg-neural-cyan shadow-none' : 'bg-off-white/20'}`}></div>
                 ))}
              </div>
           </div>

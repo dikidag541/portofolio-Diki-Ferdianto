@@ -24,17 +24,17 @@ const Identity = () => {
 
   const specs = [
     { label: 'System_Name', value: 'Diki Ferdianto' },
-    { label: 'Class_Type', value: 'Fullstack Architect' },
-    { label: 'Origin_Point', value: 'Jember, ID' },
-    { label: 'Uptime', value: '4.2 Years' },
-    { label: 'Core_Logic', value: 'TypeScript / React / Node' },
-    { label: 'Current_Mission', value: 'Building Cinematic Web' },
+    { label: 'Class_Type', value: 'System Analyst / Fullstack' },
+    { label: 'Origin_Point', value: 'Jember, Indonesia' },
+    { label: 'Current_Status', value: 'Informatika Student (Sem 6)' },
+    { label: 'Core_Logic', value: 'Laravel / React / Python / MySQL' },
+    { label: 'Focus_Areas', value: 'UML / SDLC / AI Integration' },
   ];
 
   return (
     <div 
       ref={sectionRef}
-      className="relative w-[90vw] md:w-[60vw] h-auto p-12 md:p-20 bg-white/[0.02] border border-white/5 backdrop-blur-3xl overflow-visible"
+      className="relative w-[90vw] md:w-[60vw] h-auto p-12 md:p-20 bg-off-white/[0.05] border border-off-white/10 backdrop-blur-3xl overflow-visible"
     >
       {/* Background Decorative Elements */}
       <div className="absolute -top-10 -left-10 w-20 h-20 border-t border-l border-neural-cyan/30 opacity-50"></div>
@@ -58,7 +58,7 @@ const Identity = () => {
                 <span className="text-[9px] uppercase tracking-[0.4em] opacity-30 block mb-3 group-hover:text-neural-cyan group-hover:opacity-100 transition-colors">
                   {spec.label}
                 </span>
-                <div className="text-xl md:text-2xl font-light tracking-tight border-b border-white/5 pb-2 group-hover:border-neural-cyan/20 transition-colors">
+                <div className="text-xl md:text-2xl font-light tracking-tight border-b border-off-white/10 pb-2 group-hover:border-neural-cyan/20 transition-colors">
                   {spec.value}
                 </div>
               </div>
@@ -67,9 +67,9 @@ const Identity = () => {
         </div>
 
         {/* Philosophy / Bio Quote */}
-        <div className="mt-24 pt-12 border-t border-white/5 identity-reveal">
+        <div className="mt-24 pt-12 border-t border-off-white/10 identity-reveal">
           <p className="text-sm md:text-base font-serif italic text-off-white/60 leading-relaxed max-w-2xl">
-            "I view digital architecture not just as code, but as a cinematic experience—an interplay of spatial movement, neural logic, and visual harmony."
+            "I view digital systems not just as code, but as structured architecture—an interplay of rigorous backend logic, precise system analysis, and visual clarity."
           </p>
         </div>
       </div>

@@ -6,12 +6,14 @@ const CustomCursor = () => {
 
   useEffect(() => {
     const cursor = document.querySelector('.custom-cursor');
+    
+    // Set initial percent transform for centering
+    gsap.set(cursor, { xPercent: -50, yPercent: -50 });
 
     const moveCursor = (e: MouseEvent) => {
-      const radius = isHovered ? 30 : 3;
       gsap.to(cursor, {
-        x: e.clientX - radius,
-        y: e.clientY - radius,
+        x: e.clientX,
+        y: e.clientY,
         duration: 0.1,
         ease: 'power2.out'
       });

@@ -38,10 +38,10 @@ const Contact = () => {
         <motion.div variants={staggerContainer} className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-12 text-left">
           <motion.div variants={fadeInUp}>
             <h3 className="text-[10px] uppercase tracking-[0.4em] opacity-30 mb-6">Inquiries</h3>
-            <div className="group cursor-pointer">
-              <span className="text-2xl md:text-3xl font-medium tracking-tighter hover:italic transition-all duration-300">hello@syntaxweb.id</span>
+            <a href="mailto:DikiFerdianto99@gmail.com" className="group block cursor-pointer">
+              <span className="text-xl md:text-2xl font-medium tracking-tighter hover:italic transition-all duration-300">DikiFerdianto99@gmail.com</span>
               <div className="h-[1px] w-0 group-hover:w-full bg-off-white transition-all duration-500"></div>
-            </div>
+            </a>
           </motion.div>
 
           <motion.div variants={fadeInUp} className="flex flex-wrap gap-8 md:justify-end items-end">

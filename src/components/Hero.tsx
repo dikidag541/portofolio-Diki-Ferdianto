@@ -63,9 +63,9 @@ const Hero = () => {
         style={{ transform: `translate(${mousePos.x * 10}px, ${mousePos.y * 10}px)` }}
       >
         <div className="absolute inset-x-0 -bottom-20 h-1/2 bg-gradient-to-t from-off-black to-transparent z-10"></div>
-        <div className="absolute inset-0 bg-neural-cyan/5 blur-[150px] rounded-full opacity-40 group-hover:opacity-60 transition-opacity"></div>
+        <div className="absolute inset-0 bg-neural-cyan/10 blur-[150px] rounded-full opacity-40 group-hover:opacity-60 transition-opacity"></div>
         <div
-          className="relative w-full h-full overflow-hidden transition-all duration-1000 border border-white/5 shadow-2xl"
+          className="relative w-full h-full overflow-hidden transition-all duration-1000 border border-off-white/10 shadow-xl"
           style={{
             maskImage: 'linear-gradient(to bottom, black 85%, transparent 100%)',
             WebkitMaskImage: 'linear-gradient(to bottom, black 85%, transparent 100%)'
@@ -76,18 +76,18 @@ const Hero = () => {
             alt="Diki Ferdianto"
             className="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-2000 brightness-110 contrast-[1.1] grayscale-[0.2]"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-off-black/40 via-transparent to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-off-black/60 via-transparent to-transparent"></div>
 
           {/* Scanning Line */}
-          <div className="absolute top-0 left-0 w-full h-[1px] bg-neural-cyan/20 shadow-[0_0_15px_rgba(0,242,255,0.3)] animate-scan"></div>
+          <div className="absolute top-0 left-0 w-full h-[1px] bg-neural-cyan/30 shadow-none animate-scan"></div>
         </div>
 
         {/* Floating Metadata around Image */}
-        <div className="absolute -top-8 left-0 hero-fragment px-4 border-l border-white/10">
-          <span className="text-[9px] font-mono tracking-[0.2em] opacity-40 block uppercase">Bio_Stream_Active</span>
-          <span className="text-[10px] font-mono tracking-widest opacity-20">[ 8.16°S 113.7°E ]</span>
+        <div className="absolute -top-8 left-0 hero-fragment px-4 border-l border-off-white/20">
+          <span className="text-[9px] font-mono tracking-[0.2em] opacity-50 block uppercase">Bio_Stream_Active</span>
+          <span className="text-[10px] font-mono tracking-widest opacity-30">[ 8.16°S 113.7°E ]</span>
         </div>
-        <div className="absolute -bottom-4 right-0 hero-fragment px-4 border-r border-white/10 text-right">
+        <div className="absolute -bottom-4 right-0 hero-fragment px-4 border-r border-off-white/20 text-right">
           <span className="text-[9px] font-mono tracking-[0.2em] opacity-40 block uppercase">Neural_Link</span>
           <span className="text-[10px] font-mono tracking-widest opacity-20 font-bold italic">04.12.26</span>
         </div>
@@ -95,24 +95,24 @@ const Hero = () => {
 
       {/* Layer 3: Main Title Typography (Front Overlap) - The "Blending Magic" */}
       <div
-        className="absolute inset-0 flex flex-col items-center justify-center z-20 pointer-events-none mix-blend-difference"
+        className="absolute inset-0 flex flex-col items-center justify-center z-20 pointer-events-none"
         style={{ transform: `translate(${mousePos.x * 40}px, ${mousePos.y * 40}px)` }}
       >
         <div className="text-center w-full px-4">
           <h1
             ref={titleRef}
-            className="text-[clamp(4rem,22vw,24rem)] font-display uppercase leading-[0.75] tracking-[-0.02em] overflow-visible drop-shadow-[0_0_20px_rgba(0,242,255,0.15)] whitespace-nowrap text-white"
+            className="text-[clamp(4rem,22vw,24rem)] font-display uppercase leading-[0.75] tracking-[-0.02em] overflow-visible text-off-white whitespace-nowrap"
           >
             DIKI<br />
             <span className="font-serif italic lowercase tracking-tight -mt-4 block pl-[5vw] text-off-white/90">ferdianto</span>
           </h1>
 
-          <div className="hero-fragment mt-16 flex items-center justify-center gap-12 opacity-40">
-            <div className="h-px w-16 bg-white/30"></div>
+          <div className="hero-fragment mt-16 flex items-center justify-center gap-12 opacity-60">
+            <div className="h-px w-16 bg-off-white/30"></div>
             <p className="text-[10px] md:text-[11px] uppercase tracking-[0.8em] font-light max-w-[280px] leading-relaxed">
               Software Engineer crafting <span className="font-serif italic lowercase tracking-normal">cinematic</span> digital architectures.
             </p>
-            <div className="h-px w-16 bg-white/30"></div>
+            <div className="h-px w-16 bg-off-white/30"></div>
           </div>
         </div>
       </div>
@@ -122,7 +122,7 @@ const Hero = () => {
         <div className="flex items-center gap-4">
           <div className="flex h-2 w-2 relative">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-neural-cyan opacity-40"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-neural-cyan shadow-[0_0_10px_rgba(0,242,255,0.8)]"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-neural-cyan"></span>
           </div>
           <span className="text-[10px] uppercase tracking-[0.5em] font-bold opacity-30 text-neural-cyan">Neural Feed Active // Uptime 99.9%</span>
         </div>

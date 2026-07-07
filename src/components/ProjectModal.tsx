@@ -15,14 +15,14 @@ const ProjectModal = ({ project, isOpen, onClose }: { project: Project | null, i
   return (
     <AnimatePresence>
       {isOpen && (
-        <motion.div 
+        <motion.div
           className="fixed inset-0 z-[10000] flex items-center justify-center p-4 md:p-8"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
         >
           {/* Backdrop */}
-          <motion.div 
+          <motion.div
             className="absolute inset-0 bg-off-black/95 backdrop-blur-xl"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -30,41 +30,41 @@ const ProjectModal = ({ project, isOpen, onClose }: { project: Project | null, i
           />
 
           {/* Modal Container */}
-          <motion.div 
-            className="relative w-full max-w-7xl h-full md:h-auto max-h-[90vh] bg-off-black border border-white/10 overflow-hidden flex flex-col md:flex-row group/modal"
+          <motion.div
+            className="relative w-full max-w-7xl h-full md:h-auto max-h-[90vh] bg-off-black border border-off-white/10 overflow-hidden flex flex-col md:flex-row group/modal"
             initial={{ y: 50, opacity: 0, scale: 0.98 }}
             animate={{ y: 0, opacity: 1, scale: 1 }}
             exit={{ y: 50, opacity: 0, scale: 0.98 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
             {/* Close Button */}
-            <button 
+            <button
               onClick={onClose}
-              className="absolute top-6 right-6 z-50 p-4 text-white/50 hover:text-white transition-colors"
+              className="absolute top-6 right-6 z-50 p-4 text-off-white/50 hover:text-off-white transition-colors"
             >
               <span className="text-[10px] uppercase tracking-[1em] font-bold">Close // &times;</span>
             </button>
 
             {/* Left Image Side */}
             <div className="w-full md:w-1/2 h-64 md:h-auto relative overflow-hidden flex-shrink-0">
-               <motion.img 
-                 initial={{ scale: 1.1, opacity: 0 }}
-                 animate={{ scale: 1, opacity: 0.6 }}
-                 src={project.image} 
-                 alt={project.title}
-                 className="w-full h-full object-cover grayscale contrast-125 transition-all duration-700"
-               />
-               <div className="absolute inset-0 bg-gradient-to-r from-off-black via-transparent to-transparent opacity-60"></div>
-               <div className="absolute inset-0 bg-grain opacity-20 mix-blend-overlay"></div>
-               
-               {/* Cinematic Scanline */}
-               <div className="absolute top-0 left-0 w-full h-[2px] bg-neural-cyan/30 shadow-[0_0_15px_rgba(0,242,255,0.5)] animate-scan z-10"></div>
+              <motion.img
+                initial={{ scale: 1.1, opacity: 0 }}
+                animate={{ scale: 1, opacity: 0.6 }}
+                src={project.image}
+                alt={project.title}
+                className="w-full h-full object-cover grayscale contrast-125 transition-all duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-off-black via-transparent to-transparent opacity-60"></div>
+              <div className="absolute inset-0 bg-grain opacity-20 mix-blend-multiply"></div>
+
+              {/* Cinematic Scanline */}
+              <div className="absolute top-0 left-0 w-full h-[2px] bg-neural-cyan/30 shadow-none animate-scan z-10"></div>
             </div>
 
             {/* Right Content Side */}
             <div className="w-full md:w-1/2 p-12 md:p-24 flex flex-col justify-between overflow-y-auto">
               <div>
-                <motion.span 
+                <motion.span
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 0.4, x: 0 }}
                   className="text-[10px] uppercase tracking-[1em] block mb-6"
@@ -75,30 +75,30 @@ const ProjectModal = ({ project, isOpen, onClose }: { project: Project | null, i
                   {project.title}
                 </h2>
                 <p className="text-lg md:text-xl font-light italic opacity-60 leading-relaxed mb-12">
-                   Building the definitive digital footprint for {project.title}. A fusion of clean editorial design and robust technical architecture.
+                  Building the definitive digital footprint for {project.title}. A fusion of clean editorial design and robust technical architecture.
                 </p>
-                
+
                 <div className="flex flex-wrap gap-4 mb-16">
-                   {['React', 'GSAP', 'Next.js', 'Tailwind'].map(tag => (
-                     <span key={tag} className="text-[10px] font-mono border border-white/10 px-4 py-2 opacity-40 uppercase tracking-widest">{tag}</span>
-                   ))}
+                  {['React', 'GSAP', 'Next.js', 'Tailwind'].map(tag => (
+                    <span key={tag} className="text-[10px] font-mono border border-off-white/10 px-4 py-2 opacity-40 uppercase tracking-widest">{tag}</span>
+                  ))}
                 </div>
               </div>
 
               <div className="flex flex-col gap-8">
-                 <a 
-                   href={project.url} 
-                   target="_blank" 
-                   rel="noopener noreferrer"
-                   className="group relative w-full border border-white p-8 text-center uppercase tracking-[1em] font-bold hover:bg-white hover:text-off-black transition-all duration-500 overflow-hidden"
-                 >
-                    <span className="relative z-10">Live Transmission</span>
-                    <div className="absolute inset-0 bg-white -translate-x-full group-hover:translate-x-0 transition-transform duration-500"></div>
-                 </a>
-                 <div className="flex justify-between items-center opacity-20">
-                    <span className="text-[8px] uppercase tracking-[0.5em]">Auth Code: {project.title.substring(0,3)}_VX</span>
-                    <span className="text-[8px] uppercase tracking-[0.5em]">Status: Nominal</span>
-                 </div>
+                <a
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative w-full border border-off-white p-8 text-center uppercase tracking-[1em] font-bold hover:bg-off-white hover:text-off-black transition-all duration-500 overflow-hidden"
+                >
+                  <span className="relative z-10">Live Transmission</span>
+                  <div className="absolute inset-0 bg-off-white -translate-x-full group-hover:translate-x-0 transition-transform duration-500"></div>
+                </a>
+                <div className="flex justify-between items-center opacity-20">
+                  <span className="text-[8px] uppercase tracking-[0.5em]">Auth Code: {project.title.substring(0, 3)}_VX</span>
+                  <span className="text-[8px] uppercase tracking-[0.5em]">Status: Nominal</span>
+                </div>
               </div>
             </div>
           </motion.div>

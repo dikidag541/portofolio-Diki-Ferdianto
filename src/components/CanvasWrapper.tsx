@@ -8,7 +8,7 @@ interface CanvasWrapperProps {
 const WAYPOINTS = [
   { x: 400, y: 400 }, // 0: Hero Center
   { x: 150, y: 250 }, // 1: Identity Center (New)
-  { x: 170, y: 650 }, // 2: About Center
+  { x: 185, y: 650 }, // 2: About Center
   { x: 450, y: 750 }, // 3: Expertise Center
   { x: 740, y: 410 }, // 4: Porto Center
   { x: 650, y: 150 }, // 5: Contact Center
@@ -91,7 +91,7 @@ const CanvasWrapper = ({ children }: CanvasWrapperProps) => {
         </div>
       </motion.div>
       
-      <div className="fixed bottom-12 right-12 z-[100] text-[8px] uppercase tracking-[0.5em] font-bold opacity-30 mix-blend-difference pointer-events-none">
+      <div className="fixed bottom-12 right-12 z-[100] text-[8px] uppercase tracking-[0.5em] font-bold opacity-30 pointer-events-none">
         SCROLL TO TRAVEL // DRAG TO PAN
       </div>
     </div>
