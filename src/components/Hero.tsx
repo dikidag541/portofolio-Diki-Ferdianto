@@ -72,7 +72,7 @@ const Hero = () => {
           }}
         >
           <img
-            src="/input_file_0.png"
+            src="./input_file_0.png"
             alt="Diki Ferdianto"
             className="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-2000 brightness-110 contrast-[1.1] grayscale-[0.2]"
           />

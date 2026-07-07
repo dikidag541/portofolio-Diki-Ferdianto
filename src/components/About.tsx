@@ -74,7 +74,7 @@ const About = () => {
         >
           <div className="about-image absolute inset-[-10%] w-[120%] h-[120%]">
             <img
-              src="/input_file_1.png"
+              src="./input_file_1.png"
               alt="Diki Ferdianto Editorial"
               className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-1000"
             />
