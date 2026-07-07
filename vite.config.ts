@@ -8,4 +8,5 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
+  base: process.env.GITHUB_ACTIONS ? '/portofolio-Diki-Ferdianto/' : '/',
 })
